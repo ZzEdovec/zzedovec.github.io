@@ -1,4 +1,4 @@
- WebMoney (webmoney.ru)
+ WebMoney (webmoney.ru) (DO NOT USE THIS!)
  RUB (Рубли, WMR) - P916439480096
  EUR (Евро, WME) - E440669575166
  BTC (Bitcoin, WMX) - X297586480124
