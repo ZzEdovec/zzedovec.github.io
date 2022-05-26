@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 #YourProton main script
 #YourProton is a simple wrapper of ProtonGE for non-steam use
 #Author: ZzEdovec
@@ -9,14 +10,13 @@ import subprocess
 import sys
 import tarfile
 from update_check import isUpToDate
-import wget
 import zenipy
 ######################
 username = os.getlogin()
 protonpath = '/home/'+os.getlogin()+'/.YourProton'
 ######################
 
-if isUpToDate == True:
+if isUpToDate(__file__,'https://zzedovec.github.io/youproton/') == True:
     zenipy.message(text='An update was found. To update YourProton, type "yourproton update" in the terminal')
 
 ######################
@@ -25,20 +25,20 @@ if os.path.isdir(protonpath+'/ProtonGE') == False:
     if userconfirm != 'y' and userconfirm != 'n':
         sys.exit('Incorrect input. Only y and n was respondable')
     if userconfirm == 'y':
-        print('Downloading ProtonGE')
+        print('Downloading ProtonGE')   
         subprocess.call('wget https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton7-18/GE-Proton7-18.tar.gz -O /tmp/ProtonGE.tar.gz',shell=True)
         print('Unpacking and installing ProtonGE')
         tar = tarfile.open('/tmp/ProtonGE.tar.gz')
         tar.extractall(protonpath)
         os.rename(protonpath+'/GE-Proton7-18',protonpath+'/ProtonGE')
-        print('ProtonGE version 7.18 succesfully installed, running program..')
+        print('ProtonGE version 7.18 succesfully installed')
     if userconfirm == 'n':
         sys.exit('YourProton work without downloaded ProtonGE is inpossible')    
 ######################        
         
 ######################        
 if len(sys.argv) == 1:
-    sys.exit("Nothing to do. You have not specified any programs to run through Your    Proton.")
+    sys.exit("Nothing to do.")
 if '.exe' not in sys.argv[1] and '.msi' not in sys.argv[1] and '.bat' not in sys.argv[1] and '.vbs' not in sys.argv[1]:
     sys.exit('YourProton can run only .exe, .msi, .vbs and .bat files. Other types of files is not supported.')
 
