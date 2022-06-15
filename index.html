@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>ZzEdovec</title>
+    <link rel="stylesheet" type="text/css" href="css/dark.css"/>
+    <link type="image/png" sizes="16x16" rel="icon" href="icons/mainpage.png">
+  </head>
+  <body link="#0000EE" vlink="#551A8B" text="#000000" bgcolor="#333333" alink="#EE0000">
+    <button type="button" align="center" class="button" id="lighttheme">Использовать светлую тему</button>
+    <h1 align="center" class="header1"><font face="Arial">Вы на главной странице сайта ZzEdovec.</font></h1><br>
+    <h2 align="center" class="header2"><font face="Arial">Здесь вы можете перейти на некоторые страницы.</font></h2>
+    <div align="center">
+      <button type="button" class="button" id="button1">ZeD Shot </button>
+      <button type="button" class="button" id="button2">ZeAnalytics</button>
+      <button type="button" class="button" id="button3">Медиа</button>
+      <button type="button" class="button" id="button4">Репозиторий сайта на GitHub</button>
+    </div><br>
+    <h3 align="center" class="header2"><font face="Arial">Предупреждение: Все страницы кроме этой<br>ещё не обновлены и не поддерживают переключение тем,<br>а также выполнены в старом дизайне.<br>Эта страница также ещё может дополняться.</font></h3>
+    <script>
+      var currenttheme = localStorage.getItem('Theme');
+      if (currenttheme == 'Light')
+        lighttheme();
+      if (currenttheme == 'Dark')
+        darktheme();
+      document.getElementById("lighttheme").addEventListener("click", themeswitch);
+      function themeswitch(){
+        if (currenttheme == 'Dark')
+          lighttheme();
+        else
+          darktheme();}
+
+      function lighttheme (){{
+        var newlink = document.createElement('link');
+        var oldlink = document.getElementsByTagName('link').item(0);
+        newlink.setAttribute('rel', 'stylesheet');
+        newlink.setAttribute('type', 'text/css');
+        newlink.setAttribute('href', 'css/light.css');
+        document.getElementsByTagName('head').item(0).replaceChild(newlink, oldlink);
+        document.getElementById('lighttheme').firstChild.data = 'Использовать тёмную тему';
+        localStorage.setItem('Theme','Light');
+        currenttheme = 'Light';
+        console.info('Тема сайта переключена на светлую');}}
+
+      function darktheme (){{
+        var newlink = document.createElement('link');
+        var oldlink = document.getElementsByTagName('link').item(0);
+        newlink.setAttribute('rel', 'stylesheet');
+        newlink.setAttribute('type', 'text/css');
+        newlink.setAttribute('href', 'css/dark.css');
+        document.getElementsByTagName('head').item(0).replaceChild(newlink, oldlink);
+        document.getElementById('lighttheme').firstChild.data = 'Использовать светлую тему';
+        localStorage.setItem('Theme','Dark');
+        currenttheme = 'Dark';
+        console.info('Тема сайта переключена на тёмную');}}
+
+      document.getElementById("button1").onclick = function () {
+        location.href = "https://zzedovec.github.io/pages/ZeDShot";}
+
+      document.getElementById("button2").onclick = function () {
+        location.href = "https://zzedovec.github.io/ZeAnalytics";}
+
+      document.getElementById("button3").onclick = function () {
+        location.href = "https://zzedovec.github.io/ZeAnalytics";}
+        document.getElementById("button4").onclick = function () {
+        location.href = "https://zzedovec.github.io/ZeAnalytics";}
+    </script>
+  </body>
+</html>
