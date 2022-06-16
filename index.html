@@ -21,11 +21,11 @@
       var currenttheme = localStorage.getItem('Theme');
       if (currenttheme == 'Light')
         lighttheme();
-      if (currenttheme == 'Dark')
+      else
         darktheme();
       document.getElementById("lighttheme").addEventListener("click", themeswitch);
       function themeswitch(){
-        if (currenttheme == 'Dark')
+        if (currenttheme == 'Dark' || currenttheme == null)
           lighttheme();
         else
           darktheme();}
