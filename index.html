@@ -30,7 +30,7 @@
         else
           darktheme();}
 
-      function lighttheme (){{
+      function lighttheme (){
         var newlink = document.createElement('link');
         var oldlink = document.getElementsByTagName('link').item(0);
         newlink.setAttribute('rel', 'stylesheet');
@@ -40,9 +40,9 @@
         document.getElementById('lighttheme').firstChild.data = 'Использовать тёмную тему';
         localStorage.setItem('Theme','Light');
         currenttheme = 'Light';
-        console.info('Тема сайта переключена на светлую');}}
+        console.info('Тема сайта переключена на светлую');}
 
-      function darktheme (){{
+      function darktheme (){
         var newlink = document.createElement('link');
         var oldlink = document.getElementsByTagName('link').item(0);
         newlink.setAttribute('rel', 'stylesheet');
@@ -52,7 +52,7 @@
         document.getElementById('lighttheme').firstChild.data = 'Использовать светлую тему';
         localStorage.setItem('Theme','Dark');
         currenttheme = 'Dark';
-        console.info('Тема сайта переключена на тёмную');}}
+        console.info('Тема сайта переключена на тёмную');}
 
       document.getElementById("button1").onclick = function () {
         location.href = "https://zzedovec.github.io/pages/ZeDShot";}
@@ -62,7 +62,7 @@
 
       document.getElementById("button3").onclick = function () {
         location.href = "https://zzedovec.github.io/pages/media";}
-        document.getElementById("button4").onclick = function () {
+       document.getElementById("button4").onclick = function () {
         location.href = "https://github.com/ZzEdovec/zzedovec.github.io";}
     </script>
   </body>
