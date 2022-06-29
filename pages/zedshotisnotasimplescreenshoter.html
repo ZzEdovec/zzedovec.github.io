@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="https://zzedovec.github.io/icons/ze.ico" type="image/x-icon">
+    <title>ZeD Shot - больше, чем простой скриншотер</title>
+    <link rel="stylesheet" type="text/css"
+      href="https://zzedovec.github.io/css/dark.css">
+  </head>
+  <body link="#0000EE" vlink="#551A8B" text="#000000" bgcolor="#333333"
+    alink="#EE0000">
+    <button type="button" class="button" id="lighttheme">Использовать
+      светлую тему</button>&nbsp;<button type="button" class="button"
+      id="button1">Главная страница</button>
+    <div align="center">
+      <div align="right">&nbsp; <br>
+      </div>
+      <br>
+      <br><font face="Arial">
+      <h1 class="header1">ZeD Shot - больше, чем простой скриншотер.</h1>
+       
+      <h2 class="header2">ZeD Shot может многое.</h2>
+
+      <ul class="header1">
+         
+        <li>ZeD Shot имеет игровой режим, и с ним
+            может работать в играх, не отвлекая вас на дополнительные
+            действия<br>
+           </li>
+         
+           
+          <li>ZeD Shot гибок. Каждый пользователь
+              может настроить его под свои нужны - даже цвета выделения!</li>
+           
+          <li>В ZeD Shot простой и понятный
+              интерфейс, следующий стилю минимализма</li>
+           
+          <li>ZeD Shot поддерживает любые сторонние
+              редакторы изображений</li>
+           
+          <li>ZeD Shot работает быстро, и совершенно
+              не важно на каком компьютере он запускается</li>
+           
+          <li>ZeD Shot поддерживает загрузку
+              изображений в облако с выдачей прямой ссылки</li>
+           
+          <li>ZeD Shot поддерживает комбинации клавиш</li>
+           
+          <li>ZeD Shot может запоминать, куда нужно
+              сохранять ваш скриншот</li>
+           
+          <li>В ZeD Shot есть как тёмная, так и
+              светлая тема - понравится всем!<br>
+          </li>
+        </ul>
+      </ul></font>
+    </div>
+    <script>
+      var currenttheme = localStorage.getItem('Theme');
+      if (currenttheme == 'Light')
+        lighttheme();
+      else
+        darktheme();
+      document.getElementById("lighttheme").addEventListener("click", themeswitch);
+      function themeswitch(){
+        if (currenttheme == 'Dark' || currenttheme == null)
+          lighttheme();
+        else
+          darktheme();}
+
+      function lighttheme (){
+        var newlink = document.createElement('link');
+        var oldlink = document.getElementsByTagName('link').item(0);
+        newlink.setAttribute('rel', 'stylesheet');
+        newlink.setAttribute('type', 'text/css');
+        newlink.setAttribute('href', 'https://zzedovec.github.io/css/light.css');
+        document.getElementsByTagName('head').item(0).replaceChild(newlink, oldlink);
+        document.getElementById('lighttheme').firstChild.data = 'Использовать тёмную тему';
+        localStorage.setItem('Theme','Light');
+        currenttheme = 'Light';
+        console.info('Тема сайта переключена на светлую');}
+
+      function darktheme (){
+        var newlink = document.createElement('link');
+        var oldlink = document.getElementsByTagName('link').item(0);
+        newlink.setAttribute('rel', 'stylesheet');
+        newlink.setAttribute('type', 'text/css');
+        newlink.setAttribute('href', 'https://zzedovec.github.io/css/dark.css');
+        document.getElementsByTagName('head').item(0).replaceChild(newlink, oldlink);
+        document.getElementById('lighttheme').firstChild.data = 'Использовать светлую тему';
+        localStorage.setItem('Theme','Dark');
+        currenttheme = 'Dark';
+        console.info('Тема сайта переключена на тёмную');}
+
+      document.getElementById("button1").onclick = function () {
+        location.href = "https://zzedovec.github.io/pages/ZeDShot";}
+    </script>
+  </body>
+</html>

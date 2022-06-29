@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://zzedovec.github.io/css/dark.css">
+    <link rel="icon" href="https://zzedovec.github.io/icons/ze.ico" type="image/x-icon">
+    <title>Политика конфиденциальности ZeD Shot</title>
+  </head>
+  <body link="#0000EE" vlink="#551A8B" text="#000000" bgcolor="#333333"
+    alink="#EE0000">
+    <button type="button" class="button" id="lighttheme">Использовать светлую тему</button>
+    <button type="button" class="button" id="button1">Главная страница</button>
+    <div align="center"><br>
+      <font face="Arial"><br>
+      <br>
+      <br>
+      <h1 class="header1">ZeD Shot и ваши данные</h1>
+      <p class="header1">Программа ZeD Shot может собирать о вас некоторые обезличенные
+        данные при помощи ZeAnalytics, включая:<br>
+      </p>
+      <div align="center">
+        <ul>
+          <li class="header2">IP-адрес</li>
+          <li class="header2">Интернет-провайдер</li>
+          <li class="header2">Примерное местоположение (страна, населённый пункт)</li>
+          <li class="header2">Версия операционной системы</li>
+          <li class="header2">Версия программы</li>
+        </ul>
+        <p class="header1">Это нужно для подсчёта количества пользователей программ от
+        ZzEdovec. Вся информация передаётся и хранится на серверах в зашифрованном виде,
+        находящихся на территории Российской Федерации.<br>
+        Передача данных не является обязательной. Она может быть
+        отключена в настройках.</p><br></font></font>
+      </div>
+    </div>
+    <script>
+      var currenttheme = localStorage.getItem('Theme');
+      if (currenttheme == 'Light')
+        lighttheme();
+      else
+        darktheme();
+      document.getElementById("lighttheme").addEventListener("click", themeswitch);
+      function themeswitch(){
+        if (currenttheme == 'Dark' || currenttheme == null)
+          lighttheme();
+        else
+          darktheme();}
+
+      function lighttheme (){
+        var newlink = document.createElement('link');
+        var oldlink = document.getElementsByTagName('link').item(0);
+        newlink.setAttribute('rel', 'stylesheet');
+        newlink.setAttribute('type', 'text/css');
+        newlink.setAttribute('href', 'https://zzedovec.github.io/css/light.css');
+        document.getElementsByTagName('head').item(0).replaceChild(newlink, oldlink);
+        document.getElementById('lighttheme').firstChild.data = 'Использовать тёмную тему';
+        localStorage.setItem('Theme','Light');
+        currenttheme = 'Light';
+        console.info('Тема сайта переключена на светлую');}
+
+      function darktheme (){
+        var newlink = document.createElement('link');
+        var oldlink = document.getElementsByTagName('link').item(0);
+        newlink.setAttribute('rel', 'stylesheet');
+        newlink.setAttribute('type', 'text/css');
+        newlink.setAttribute('href', 'https://zzedovec.github.io/css/dark.css');
+        document.getElementsByTagName('head').item(0).replaceChild(newlink, oldlink);
+        document.getElementById('lighttheme').firstChild.data = 'Использовать светлую тему';
+        localStorage.setItem('Theme','Dark');
+        currenttheme = 'Dark';
+        console.info('Тема сайта переключена на тёмную');}
+
+      document.getElementById("button1").onclick = function () {
+        location.href = "https://zzedovec.github.io/pages/ZeDShot";}
+    </script>
+  </body>
+</html>
