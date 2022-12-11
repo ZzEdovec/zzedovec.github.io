@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css"
+      href="https://zzedovec.github.io/css/dark.css">
+    <link rel="icon" href="https://zzedovec.github.io/icons/kellacornersicon.png" type="image/x-icon">
+    <title>Kella Corners</title>
+  </head>
+  <body vlink="#551A8B" text="#000000" link="#0000EE" bgcolor="#333333"
+    alink="#EE0000">
+    <button type="button" class="button" id="lighttheme">Использовать
+      светлую тему</button>
+    <div align="center"><font face="Arial"> <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1 class="header1"><br>
+        </h1>
+        <h1 class="header1">Kella Corners<br>
+        </h1>
+        <h2 class="header2" align="center">управлять компьютером теперь можно быстрее<br>
+        </h2>
+        <button type="button" class="button" id="button1">Загрузить для
+          Windows</button><br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <font size="-2">
+          <p class="header1">Kella Corners разработана queinu<br>
+            В программе могут быть использованы авторские иконки от
+            дизайнеров команды icons8<br>
+            Kella Corners разработана на jPHP и использует JRE 8,
+            поставляемую в пакете с программой. Oracle Java является
+            зарегистрированной товарной маркой Oracle Corporation</p>
+          <br>
+        </font></font></div>
+    <script>
+      var currenttheme = localStorage.getItem('Theme');
+      if (currenttheme == 'Light')
+        lighttheme();
+      else
+        darktheme();
+      document.getElementById("lighttheme").addEventListener("click", themeswitch);
+      function themeswitch(){
+        if (currenttheme == 'Dark' || currenttheme == null)
+          lighttheme();
+        else
+          darktheme();}
+
+      function lighttheme (){
+        var newlink = document.createElement('link');
+        var oldlink = document.getElementsByTagName('link').item(0);
+        newlink.setAttribute('rel', 'stylesheet');
+        newlink.setAttribute('type', 'text/css');
+        newlink.setAttribute('href', 'https://zzedovec.github.io/css/light.css');
+        document.getElementsByTagName('head').item(0).replaceChild(newlink, oldlink);
+        document.getElementById('lighttheme').firstChild.data = 'Использовать тёмную тему';
+        localStorage.setItem('Theme','Light');
+        currenttheme = 'Light';
+        console.info('Тема сайта переключена на светлую');}
+
+      function darktheme (){
+        var newlink = document.createElement('link');
+        var oldlink = document.getElementsByTagName('link').item(0);
+        newlink.setAttribute('rel', 'stylesheet');
+        newlink.setAttribute('type', 'text/css');
+        newlink.setAttribute('href', 'https://zzedovec.github.io/css/dark.css');
+        document.getElementsByTagName('head').item(0).replaceChild(newlink, oldlink);
+        document.getElementById('lighttheme').firstChild.data = 'Использовать светлую тему';
+        localStorage.setItem('Theme','Dark');
+        currenttheme = 'Dark';
+        console.info('Тема сайта переключена на тёмную');}
+
+      document.getElementById("button1").onclick = function () {
+        location.href = "https://www.dropbox.com/s/4u4ezu7kdrnbucq/kellacornersinstall.exe?dl=1";}
+    </script>
+  </body>
+</html>
