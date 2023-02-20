@@ -10,14 +10,14 @@
     <button type="button" align="center" class="button" id="lighttheme">Использовать светлую тему</button>
     <h1 align="center" class="header1"><font face="Arial">Вы на главной странице сайта queinu.</font></h1><br>
     <h2 align="center" class="header2"><font face="Arial">Выберите страницу, на которую вы хотите перейти.</font></h2>
+    <div align="center"><button type="button" class="button" id="button7">queinu apps portal</button></div><br>
     <div align="center">
-      <button type="button" class="button" id="button1">ZeD Shot </button>
+      <button type="button" class="button" id="button1">ZeD Shot</button>
       <button type="button" class="button" id="button2">ZeAnalytics</button>
       <button type="button" class="button" id="button3">ZeD Weather</button>
       <button type="button" class="button" id="button4">Kella Corners</button>
       <button type="button" class="button" id="button5">Медиа</button>
-      <button type="button" class="button" id="button6">Репозиторий сайта на GitHub</button>
-    </div>
+      <button type="button" class="button" id="button6">Репозиторий сайта на GitHub</button></div>
     <script>
       var currenttheme = localStorage.getItem('Theme');
       if (currenttheme == 'Light')
@@ -68,6 +68,8 @@
         location.href = "https://zzedovec.github.io/pages/media";}
       document.getElementById("button6").onclick = function () {
         location.href = "https://github.com/ZzEdovec/zzedovec.github.io";}
+      document.getElementById("button7").onclick = function () {
+        location.href = "https://zzedovec.github.io/pages/appsportal";}
     </script>
   </body>
 </html>
