@@ -1,75 +1,113 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>queinu</title>
-    <link rel="stylesheet" type="text/css" href="css/dark.css"/>
+<head>
+	<meta charset="UTF-8">
+	<title>queinu</title>
     <link type="image/png" sizes="16x16" rel="icon" href="icons/mainpage.png">
-  </head>
-  <body link="#0000EE" vlink="#551A8B" text="#000000" bgcolor="#333333" alink="#EE0000">
-    <button type="button" align="center" class="button" id="lighttheme">Использовать светлую тему</button>
-    <h1 align="center" class="header1"><font face="Arial">Вы на главной странице сайта queinu.</font></h1><br>
-    <h2 align="center" class="header2"><font face="Arial">Выберите страницу, на которую вы хотите перейти.</font></h2>
-    <div align="center"><button type="button" class="button" id="button7">queinu apps portal</button></div><br>
-    <div align="center">
-      <button type="button" class="button" id="button1">ZeD Shot</button>
-      <button type="button" class="button" id="button2">ZeAnalytics</button>
-      <button type="button" class="button" id="button3">ZeD Weather</button>
-      <button type="button" class="button" id="button4">Kella Corners</button>
-      <button type="button" class="button" id="button5">Медиа</button>
-      <button type="button" class="button" id="button6">Репозиторий сайта на GitHub</button></div>
-    <script>
-      var currenttheme = localStorage.getItem('Theme');
-      if (currenttheme == 'Light')
-        lighttheme();
-      else
-        darktheme();
-      document.getElementById("lighttheme").addEventListener("click", themeswitch);
-      function themeswitch(){
-        if (currenttheme == 'Dark' || currenttheme == null)
-          lighttheme();
-        else
-          darktheme();}
+	<style>
+        @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@900&display=swap');
+        html {
+            height: 100%;
+            background-image: linear-gradient(to bottom, #fd746c, #ff9068, #ffab7d);
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }   
+        header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        }
 
-      function lighttheme (){
-        var newlink = document.createElement('link');
-        var oldlink = document.getElementsByTagName('link').item(0);
-        newlink.setAttribute('rel', 'stylesheet');
-        newlink.setAttribute('type', 'text/css');
-        newlink.setAttribute('href', 'css/light.css');
-        document.getElementsByTagName('head').item(0).replaceChild(newlink, oldlink);
-        document.getElementById('lighttheme').firstChild.data = 'Использовать тёмную тему';
-        localStorage.setItem('Theme','Light');
-        currenttheme = 'Light';
-        console.info('Тема сайта переключена на светлую');}
+        header h1 {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0;
+        font-family: 'Unbounded', cursive;
+        }
 
-      function darktheme (){
-        var newlink = document.createElement('link');
-        var oldlink = document.getElementsByTagName('link').item(0);
-        newlink.setAttribute('rel', 'stylesheet');
-        newlink.setAttribute('type', 'text/css');
-        newlink.setAttribute('href', 'css/dark.css');
-        document.getElementsByTagName('head').item(0).replaceChild(newlink, oldlink);
-        document.getElementById('lighttheme').firstChild.data = 'Использовать светлую тему';
-        localStorage.setItem('Theme','Dark');
-        currenttheme = 'Dark';
-        console.info('Тема сайта переключена на тёмную');}
+        header nav {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap; /* добавлено свойство для переноса кнопок на новую строку */
+        margin-right: +40px;
+        }
 
-      document.getElementById("button1").onclick = function () {
-        location.href = "https://zzedovec.github.io/pages/ZeDShot";}
+        header nav a {
+        color: #333;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 18px;
+        transition: color 0.3s ease-in-out;
+        }
 
-      document.getElementById("button2").onclick = function () {
-        location.href = "https://zzedovec.github.io/ZeAnalytics";}
-      document.getElementById("button3").onclick = function () {
-        location.href = "https://zzedovec.github.io/pages/ZeDWeather";}
-      document.getElementById("button4").onclick = function () {
-        location.href = "https://zzedovec.github.io/pages/KellaCorners";}
-      document.getElementById("button5").onclick = function () {
-        location.href = "https://zzedovec.github.io/pages/media";}
-      document.getElementById("button6").onclick = function () {
-        location.href = "https://github.com/ZzEdovec/zzedovec.github.io";}
-      document.getElementById("button7").onclick = function () {
-        location.href = "https://zzedovec.github.io/pages/appsportal";}
-    </script>
-  </body>
-</html>
+        header nav a:hover {
+        color: sandybrown;
+        }
+
+        main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 800px;
+        width: 100%;
+        padding: 0 20px;
+        text-align: left;
+        }
+
+        main h2 {
+        font-size: 36px;
+        margin-top: 0;
+        color: #444;
+        }
+
+        main p {
+        font-size: 18px;
+        margin-bottom: 40px;
+        color: #666;
+        }
+
+        footer {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 12px;
+        color: #444;
+        }
+    </style>
+</head>
+<body>
+	<header>
+		<h1>queinu</h1>
+		<nav>
+			<a href="https://zzedovec.github.io">Главная</a>
+			<a href="https://zzedovec.github.io/pages/appsportal">apps portal</a>
+			<a href="https://zzedovec.github.io/pages/ZeDShot">ZeD Shot</a>
+			<a href="https://zzedovec.github.io/pages/KellaCorners">Kella Corners</a>
+			<a href="https://zzedovec.github.io/pages/ZeDWeather">ZeD Weather</a>
+			<a href="https://zzedovec.github.io/pages/media">Медиа</a>
+		</nav>
+	</header>
+    <main>
+        <h2>это главная страница сайта queinu</h2>
+        <p>Добро пожаловать в мой второй дом! Меня зовут Даня, а мой творческий псевдоним - queinu. На этом сайте представлены мои приложения с графическим интерфейсом. Они призваны упростить работу за компьютером и обеспечить наилучший пользовательский опыт. Просто нажмите на название проекта в шапке страницы.
+        </p>
+        </main>
+        <footer>
+        <p style="font-size: 12px; color: blanchedalmond; text-align: center;">this website made by queinu and chatgpt with love in 2023</p>
+        </footer>
+        
+        </body>
+        </html>
+    
