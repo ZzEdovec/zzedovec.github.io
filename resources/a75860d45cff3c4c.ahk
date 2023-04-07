@@ -1,3 +1,5 @@
+#NoTrayIcon
+
 Home::Pause
 SetDefaultMouseSpeed, 0
 SetBatchLines, -1
