@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Rudi</title>
+    <link type="image/png" sizes="16x16" rel="icon" href="https://zzedovec.github.io/icons/rudi.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Onest:wght@900&display=swap');
+        html {
+            height: 100%;
+            background-image: linear-gradient(to bottom, #fd746c, #ff9068, #ffab7d);
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }   
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+            font-family: 'Onest', cursive;
+        }
+
+        header nav {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-right: +40px;
+        }
+
+        header nav a {
+            color: #333;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        header nav a:hover {
+            color: sandybrown;
+        }
+
+        main {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 800px;
+            width: 100%;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        main h2 {
+            font-size: 36px;
+            margin: 20px 0;
+            color: #444;
+        }
+
+        main p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: #666;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: #444;
+        }
+
+        .typing-animation {
+            overflow: hidden;
+            white-space: nowrap;
+            display: inline-block;
+            animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        .download-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #d7a039;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .download-button:hover {
+            background-color: #FFC200;
+            box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+
+        .download-button:hover {
+            background-color: #45A049;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: black; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Rudi</h1>
+        <nav>
+            <a href="https://zzedovec.github.io">Главная</a>
+            <a href="https://zzedovec.github.io/pages/appsportal">apps portal</a>
+            <a href="https://zzedovec.github.io/pages/Rudi">Rudi</a>
+            <a href="https://zzedovec.github.io/pages/ZeDShot">ZeD Shot</a>
+            <a href="https://zzedovec.github.io/pages/KellaCorners">Kella Corners</a>
+            <a href="https://zzedovec.github.io/pages/ZeDWeather">ZeD Weather</a>
+            <a href="https://zzedovec.github.io/pages/media">Медиа</a>
+        </nav>
+    </header>
+    <main>
+        <h2>
+            <span class="typing-animation"></span>
+        </h2>
+        <p>Протестируйте бета-версию программы Rudi для совместного просмотра видео уже сейчас.</p>
+        <a href="https://www.dropbox.com/scl/fi/1wfq1vz0s6u4eg53oo0m8/rudisetup.exe?rlkey=jq8bhhtvewzsmxsjtchdhfc56&dl=1" class="download-button">Скачать</a>
+    </main>
+    <script>
+        // JavaScript для смены текста с анимацией
+        const phrases = ["Новые эмоции.", "Новый опыт.", "Новые впечатления.", "Проводите время вместе."];
+        const textElement = document.querySelector(".typing-animation");
+        let phraseIndex = 0;
+        let letterIndex = 0;
+        let isDeleting = false;
+        let delay = 1000; // Задержка перед началом стирания
+
+        function animateText() {
+            const currentPhrase = phrases[phraseIndex];
+            textElement.textContent = isDeleting
+                ? currentPhrase.substring(0, letterIndex - 1)
+                : currentPhrase.substring(0, letterIndex + 1);
+
+            letterIndex = isDeleting ? letterIndex - 1 : letterIndex + 1;
+
+            if (!isDeleting && letterIndex === currentPhrase.length) {
+                isDeleting = true;
+                delay = 1000;
+            } else if (isDeleting && letterIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                delay = 1000;
+            }
+
+            const speed = /*isDeleting ? 100 :*/ 100;
+
+            setTimeout(animateText, speed);
+
+            if (letterIndex === currentPhrase.length && !isDeleting) {
+                setTimeout(animateText, delay);
+            }
+        }
+
+        animateText(); // Start the animation
+    </script>
+</body>
+</html>
