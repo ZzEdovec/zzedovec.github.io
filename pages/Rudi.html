@@ -143,16 +143,15 @@
             <span class="typing-animation"></span>
         </h2>
         <p>Протестируйте бета-версию программы Rudi для совместного просмотра видео уже сейчас.</p>
-        <a href="https://www.dropbox.com/scl/fi/1wfq1vz0s6u4eg53oo0m8/rudisetup.exe?rlkey=jq8bhhtvewzsmxsjtchdhfc56&dl=1" class="download-button">Скачать</a>
+        <a href="https://www.dropbox.com/scl/fi/jsvfqn9tuu0wxm1gwkm9s/rudi_installer.exe?rlkey=nvw19xywtmjl6gcmvp2yhhl83&dl=1" class="download-button">Скачать</a>
     </main>
     <script>
-        // JavaScript для смены текста с анимацией
-        const phrases = ["Новые эмоции.", "Новый опыт.", "Новые впечатления.", "Проводите время вместе."];
+        const phrases = ["Новые эмоции.", "Новые впечатления.", "Проводите время вместе."];
         const textElement = document.querySelector(".typing-animation");
         let phraseIndex = 0;
         let letterIndex = 0;
         let isDeleting = false;
-        let delay = 1000; // Задержка перед началом стирания
+        let delay = 400;
 
         function animateText() {
             const currentPhrase = phrases[phraseIndex];
@@ -164,11 +163,11 @@
 
             if (!isDeleting && letterIndex === currentPhrase.length) {
                 isDeleting = true;
-                delay = 1000;
+                delay = 400;
             } else if (isDeleting && letterIndex === 0) {
                 isDeleting = false;
                 phraseIndex = (phraseIndex + 1) % phrases.length;
-                delay = 1000;
+                delay = 400;
             }
 
             const speed = /*isDeleting ? 100 :*/ 100;
@@ -180,7 +179,7 @@
             }
         }
 
-        animateText(); // Start the animation
+        animateText();
     </script>
 </body>
 </html>
