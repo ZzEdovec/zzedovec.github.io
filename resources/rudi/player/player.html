@@ -33,9 +33,6 @@
                     fs: 0,
                     autoplay: 1,
                     modestbranding: 1
-                },
-                events: {
-                    'onStateChange': onPlayerStateChange
                 }
             });
         }
@@ -67,6 +64,11 @@
             return player.getCurrentTime();
         }
 
+        function getDuration()
+        {
+            return player.getDuration();
+        }
+
         function setVolume(volume)
         {
             player.setVolume(volume);
@@ -75,15 +77,6 @@
         function getPlayerState()
         {
             return player.getPlayerState();
-        }
-
-        function onPlayerStateChange(event) {
-            if (started == true && event.data == 1){
-                return;}
-            if (started == false && event.data == 1){
-                started = true;}
-            
-            playerStateBridge.run(event.data);
         }
     </script>
 </head>
