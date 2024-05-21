@@ -78,8 +78,6 @@
         }
 
         function onPlayerStateChange(event) {
-            if (event.data != 0 && event.data != 1){
-                return;}
             if (started == true && event.data == 1){
                 return;}
             if (started == false && event.data == 1){
