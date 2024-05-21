@@ -33,6 +33,9 @@
                     autoplay: 1,
                     modestbranding: 1
                 },
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
             });
         }
         
@@ -56,9 +59,9 @@
             player.loadVideoById(id);
         }
 
-        function getPlayerState()
+        function getTime()
         {
-            return player.getPlayerState();
+            return player.getCurrentTime();
         }
 
         function setVolume(volume)
@@ -66,28 +69,12 @@
             player.setVolume(volume);
         }
 
-        /*function onPlayerReady(event) {
-            setInterval(function() {
-                let currentTime = player.getCurrentTime();
-                window.parent.postMessage({event: 'currentTime', time: currentTime}, '*');
-            }, 30000);
-        }
-
         function onPlayerStateChange(event) {
-            if (event.data == YT.PlayerState.PLAYING) {
-                window.parent.postMessage({event: 'play'}, '*');
-            } else if (event.data == YT.PlayerState.PAUSED) {
-                window.parent.postMessage({event: 'pause'}, '*');
-            } else if (event.data == YT.PlayerState.ENDED) {
-                window.parent.postMessage({event: 'end'}, '*');
-            }
+            if (event.data != 0 || event.data != 1)
+                return;
+            
+            playerStateBridge.run(event.data);
         }
-
-        window.addEventListener('message', function(event) {
-            if (event.data.event === 'seekTo') {
-                player.seekTo(event.data.time, true);
-            }
-        });*/
     </script>
 </head>
 <body>
