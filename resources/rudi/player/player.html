@@ -72,6 +72,11 @@
             player.setVolume(volume);
         }
 
+        function getPlayerState()
+        {
+            return player.getPlayerState();
+        }
+
         function onPlayerStateChange(event) {
             if (event.data != 0 && event.data != 1)
                 return;
