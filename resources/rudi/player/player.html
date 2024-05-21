@@ -73,7 +73,7 @@
         function onPlayerStateChange(event) {
             if (event.data != 0 || event.data != 1)
                 return;
-            if (started == true)
+            if (started == true && event.data == 0)
                 return;
             
             playerStateBridge.run(event.data);
