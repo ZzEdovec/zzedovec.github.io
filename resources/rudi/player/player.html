@@ -19,6 +19,7 @@
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         let player;
+        let started = false;
         let videoId = new URLSearchParams(window.location.search).get('id');
 
         function onYouTubeIframeAPIReady() {
@@ -71,6 +72,8 @@
 
         function onPlayerStateChange(event) {
             if (event.data != 0 || event.data != 1)
+                return;
+            if (started == true)
                 return;
             
             playerStateBridge.run(event.data);
