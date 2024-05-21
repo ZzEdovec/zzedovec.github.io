@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Rudi YouTube Player</title>
+    <title>YouTube Player</title>
     <style>
         body, html {
             height: 100%;
@@ -40,16 +40,12 @@
 
         function onPlayerStateChange(event) {
             if (event.data == YT.PlayerState.PLAYING) {
-                window.phpBridge.play();
+                window.parent.postMessage({event: 'play'}, '*');
             } else if (event.data == YT.PlayerState.PAUSED) {
-                window.phpBridge.pause();
+                window.parent.postMessage({event: 'pause'}, '*');
             } else if (event.data == YT.PlayerState.ENDED) {
-                window.phpBridge.end();
+                window.parent.postMessage({event: 'end'}, '*');
             }
-        }
-
-        function sendEventToBridge(event) {
-            window.phpBridge.pause();
         }
 
         window.addEventListener('message', function(event) {

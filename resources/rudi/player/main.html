@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+</head>
+<body>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoId = urlParams.get('id');
+        const iframeSrc = `path/to/your/player.html?id=${videoId}`;
+    </script>
+
+    <iframe id="youtubePlayer" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+    <script>
+        document.getElementById('youtubePlayer').src = iframeSrc;
+
+        window.addEventListener('message', function(event) {
+            if (event.data.event === 'play') {
+                window.phpBridge.videoPlay();
+            } else if (event.data.event === 'pause') {
+                window.phpBridge.videoPause();
+            } else if (event.data.event === 'seek') {
+                window.phpBridge.videoSeek(event.data.time);
+            } else if (event.data.event === 'currentTime') {
+                window.phpBridge.updateCurrentTime(event.data.time);
+            }
+        });
+    </script>
+</body>
+</html>
