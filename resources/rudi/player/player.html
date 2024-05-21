@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Player</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        #player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        let player;
+        let videoId = new URLSearchParams(window.location.search).get('id');
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                videoId: videoId,
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            setInterval(function() {
+                let currentTime = player.getCurrentTime();
+                window.parent.postMessage({event: 'currentTime', time: currentTime}, '*');
+            }, 30000);
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING) {
+                sendEventToBridge('play');
+            } else if (event.data == YT.PlayerState.PAUSED) {
+                sendEventToBridge('pause');
+            } else if (event.data == YT.PlayerState.ENDED) {
+                sendEventToBridge('end');
+            }
+        }
+
+        function sendEventToBridge(event) {
+            window.parent.postMessage({event: event}, '*');
+        }
+
+        window.addEventListener('message', function(event) {
+            if (event.data.event === 'seekTo') {
+                player.seekTo(event.data.time, true);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="player"></div>
+</body>
+</html>
