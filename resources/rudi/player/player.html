@@ -25,15 +25,18 @@
             player = new YT.Player('player', {
                 videoId: videoId,
                 playerVars: {
-                    controls: 0,
-                    disablekb: 1,
                     rel: 0,
                     iv_load_policy: 3,
                     fs: 0,
                     autoplay: 1,
                     modestbranding: 1
+                },
+                events: {
+                    'onReady': play
                 }
             });
+            
+            document.getElementById('player').sandbox = 'allow-scripts allow-same-origin';
         }
         
         function play()
