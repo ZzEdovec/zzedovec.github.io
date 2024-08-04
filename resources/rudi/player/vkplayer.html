@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+    <title>VK Video Player</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        #player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <iframe src="https://vk.com/video_ext.php?oid=-22822305&id=456241864&hd=2&js_api=1&autoplay=1" id="player" allow="autoplay; encrypted-media; fullscreen; picture-in-picture;" allowfullscreen frameborder="0"></iframe>
+    
+    <script src="https://vk.com/js/api/videoplayer.js"></script>
+    <script>
+        let playerElement = document.getElementById('player');
+        let urlParams = new URLSearchParams(window.location.search);
+
+        //playerElement.setAttribute('src','https://vk.com/video_ext.php?oid='+urlParams.get('oid')+'&id='+urlParams.get('id')+'&hd=1&autoplay=1&js_api=1');        
+        const player = VK.VideoPlayer(playerElement);
+
+
+        function pause()
+        {
+            player.pause();
+        }
+    </script>
+</body>
+</html>
