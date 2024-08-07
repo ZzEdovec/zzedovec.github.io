@@ -16,7 +16,7 @@
     </style>
 </head>
 <body>
-    <iframe id="player" allow="autoplay; encrypted-media;" frameborder="0" sandbox="allow-same-origin allow-scripts"></iframe>
+    <iframe id="player" allow="autoplay; encrypted-media;" frameborder="0" sandbox="allow-same-origin allow-scripts" onload="iframeFocus()"></iframe>
     
     <script src="https://vk.com/js/api/videoplayer.js"></script>
     <script>
@@ -25,6 +25,7 @@
 
         playerElement.setAttribute('src','https://vk.com/video_ext.php?oid='+urlParams.get('oid')+'&id='+urlParams.get('id')+'&hd=1&autoplay=1&js_api=1');
         const player = VK.VideoPlayer(playerElement);
+        player.on('inited',function(){playerElement.focus();});
 
         function play()
         {
