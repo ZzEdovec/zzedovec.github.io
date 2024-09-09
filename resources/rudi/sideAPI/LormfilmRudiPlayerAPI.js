@@ -1,4 +1,4 @@
-const player = document.querySelector('#oframeplayer-'+window.videoElement+' > hdvbplayer:nth-child(5) > video');
+const player = document.querySelector('#oframeplayer-'+document.querySelector('body > div').id.substring(7)+' > hdvbplayer > video');
 
 function play()
 {
