@@ -1,4 +1,4 @@
-const player = window.videoElement;
+const player = document.querySelector('#oframeplayer-'+window.videoElement+' > hdvbplayer:nth-child(5) > video');
 
 function play()
 {
