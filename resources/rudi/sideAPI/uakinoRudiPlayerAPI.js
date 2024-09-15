@@ -1,41 +1,41 @@
-const playerObj = document.querySelector('#oframeplayer > pjsdiv:nth-child(3) > video');
+const playerObj = new Playerjs({id:"player"});
 
 function play()
 {
-    playerObj.play();
+    playerObj.api('play');
 }
 
 function pause()
 {
-    playerObj.pause();
+    playerObj.api('pause');
 }
 
 function seekTo(seconds)
 {
-    playerObj.currentTime = seconds;
+    playerObj.api('seek',seconds);
 }
 
 function getTime()
 {
-    return playerObj.currentTime;
+    return playerObj.api('time');
 }
 
 function getDuration()
 {
-    return playerObj.duration;
+    return playerObj.api('duration');
 }
 
 function setVolume(volume)
 {
-    playerObj.volume =volume;
+    playerObj.api('volume',volume);
 }
 
 function getPlayerState()
 {
-    if (playerObj.error != null)
+    if (document.querySelector('#oframeplayer > pjsdiv:nth-child(3) > video').error != null)
         return -1;
 
-    if (playerObj.paused)
+    if (playerObj.api('playing'))
         return 2;
     else
         return 1;
