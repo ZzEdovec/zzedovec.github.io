@@ -1,4 +1,4 @@
-const playerObj = new Playerjs({id:"player"});
+const playerObj = new Playerjs(player_data);
 
 function play()
 {
