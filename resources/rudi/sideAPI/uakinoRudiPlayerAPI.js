@@ -36,7 +36,7 @@ function getPlayerState()
         return -1;
 
     if (playerObj.api('playing'))
-        return 2;
-    else
         return 1;
+    else
+        return 2;
 }
