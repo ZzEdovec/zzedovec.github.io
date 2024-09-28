@@ -52,9 +52,6 @@ function setVolume(volume)
 
 function getPlayerState()
 {
-    if (document.querySelector('#oframeplayer > pjsdiv:nth-child(3) > video').error != null)
-        return -1;
-
     if (playerObj.api('playing'))
         return 1;
     else
