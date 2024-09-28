@@ -34,7 +34,6 @@
             });
             
             document.getElementById('player').sandbox = 'allow-scripts allow-same-origin';
-            setTimeout(retryPlay,6000);
         }
         
         function play()
@@ -57,14 +56,6 @@
             player.loadVideoById(id);
 
             setTimeout(retryPlay,4500);
-        }
-
-        function retryPlay()
-        {
-            if (player.getVideoLoadedFraction() == 0 && confirm('Плеер загружается слишком долго. Перезапустить его?'))
-            {
-                player.loadVideoById(player.getVideoData()['video_id']);
-            }
         }
 
         function getTime()
