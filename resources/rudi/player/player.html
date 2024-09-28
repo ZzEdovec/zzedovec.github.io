@@ -1,1 +1,90 @@
-/home/queinu/Документы/GitHub/zzedovec.github.io/resources/rudi/player/ytplayer.html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Player</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        #player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        let player;
+        let videoId = new URLSearchParams(window.location.search).get('id');
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                videoId: videoId,
+                playerVars: {
+                    rel: 0,
+                    iv_load_policy: 3,
+                    fs: 0,
+                    autoplay: 1,
+                    modestbranding: 1
+                }
+            });
+            
+            document.getElementById('player').sandbox = 'allow-scripts allow-same-origin';
+            setTimeout(function()
+            {
+                if (player.getVideoLoadedFraction() == 0 && confirm('Плеер загружается слишком долго. Перезапустить его?'))
+                {
+                    player.loadVideoById(player.getVideoData()['video_id']);
+                }
+            },4000);
+        }
+        
+        function play()
+        {
+            player.playVideo();
+        }
+
+        function pause()
+        {
+            player.pauseVideo();
+        }
+
+        function seekTo(seconds)
+        {
+            player.seekTo(seconds);
+        }
+
+        function load(id)
+        {
+            player.loadVideoById(id);
+        }
+
+        function getTime()
+        {
+            return player.getCurrentTime();
+        }
+
+        function getDuration()
+        {
+            return player.getDuration();
+        }
+
+        function setVolume(volume)
+        {
+            player.setVolume(volume);
+        }
+
+        function getPlayerState()
+        {
+            return player.getPlayerState();
+        }
+    </script>
+</head>
+<body>
+    <div id="player"></div>
+</body>
+</html>
