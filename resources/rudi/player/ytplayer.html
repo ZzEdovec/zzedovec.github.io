@@ -34,13 +34,7 @@
             });
             
             document.getElementById('player').sandbox = 'allow-scripts allow-same-origin';
-            setTimeout(function()
-            {
-                if (player.getVideoLoadedFraction() == 0 && confirm('Плеер загружается слишком долго. Перезапустить его?'))
-                {
-                    player.loadVideoById(player.getVideoData()['video_id']);
-                }
-            },4000);
+            setTimeout(retryPlay,6000);
         }
         
         function play()
@@ -61,6 +55,16 @@
         function load(id)
         {
             player.loadVideoById(id);
+
+            setTimeout(retryPlay,4500);
+        }
+
+        function retryPlay()
+        {
+            if (player.getVideoLoadedFraction() == 0 && confirm('Плеер загружается слишком долго. Перезапустить его?'))
+            {
+                player.loadVideoById(player.getVideoData()['video_id']);
+            }
         }
 
         function getTime()
