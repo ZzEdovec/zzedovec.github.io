@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VK Video Player</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        #player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="player" allow="autoplay; encrypted-media;" frameborder="0" sandbox="allow-same-origin allow-scripts" onload="iframeFocus()"></iframe>
+    
+    <script src="https://vk.com/js/api/videoplayer.js"></script>
+    <script>
+        var playerElement = document.getElementById('player');
+        let urlParams = new URLSearchParams(window.location.search);
+
+        ids = urlParams.get('id').split('_');
+
+        playerElement.setAttribute('src','https://vk.com/video_ext.php?oid='+ids[0]+'&id='+ids[1]+'&hd=1&autoplay=1&js_api=1');
+        const player = VK.VideoPlayer(playerElement);
+
+        function play()
+        {
+            player.play();
+        }
+
+        function pause()
+        {
+            player.pause();
+        }
+
+        function seekTo(seconds)
+        {
+            player.seek(seconds);
+        }
+
+        function load(id)
+        {
+            ids = id.split('_');
+            playerElement.setAttribute('src','https://vk.com/video_ext.php?oid='+ids[0]+'&id='+ids[1]+'&hd=1&autoplay=1&js_api=1');
+        }
+
+        function getTime()
+        {
+            return player.getCurrentTime();
+        }
+
+        function getDuration()
+        {
+            return player.getDuration();
+        }
+
+        function setVolume(volume)
+        {
+            player.setVolume(volume);
+        }
+
+        function getPlayerState()
+        {
+            switch (player.getState()) // for compatibility with Rudi
+            {
+                case ('uninited'):
+                    return 3;
+                case ('unstarted'):
+                    return 3;
+                case ('playing'):
+                    return 1;
+                case ('paused'):
+                    return 2;
+                case ('ended'):
+                    return 0;
+                case ('error'):
+                    return -1;
+            }
+        }
+    </script>
+</body>
+</html>
