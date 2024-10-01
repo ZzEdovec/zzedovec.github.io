@@ -28,6 +28,11 @@ function setVolume(volume)
     playerObj.api('volume',volume);
 }
 
+function load(id)
+{
+    playerObj.api('play',id);
+}
+
 function getPlayerState()
 {
     if (playerObj.api('playing'))
