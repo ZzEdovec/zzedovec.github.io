@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>queinu PlayerJS</title>
+        <script src="https://zzedovec.github.io/resources/rudi/player/playerjs.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="player-view"></div>
+
+        <script>
+            var params = new URLSearchParams(window.location.search);
+            const playerObj = new Playerjs({id:"player-view", file: params.get('id')});
+        </script>
+        <script src="https://zzedovec.github.io/resources/rudi/PlayerJS2Rudi.js"></script>
+    </body>
+</html>
