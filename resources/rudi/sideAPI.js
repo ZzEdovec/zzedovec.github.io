@@ -15,6 +15,7 @@ else if (typeof player_data !== 'undefined')
 else if (typeof playerConfigs !== 'undefined')
 {
     playerConfigs['autoplay'] = 1;
+    delete playerConfigs['rek'];
 }
 
 Playerjs = typeof Playerjs !== 'undefined' ? Playerjs : HDVBPlayer;
