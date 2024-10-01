@@ -11,6 +11,7 @@ if (typeof player_data === 'undefined' && typeof playerConfigs === 'undefined')
 else if (typeof player_data !== 'undefined')
 {
     player_data['autoplay'] = 1;
+    delete player_data['rek'];
 }
 else if (typeof playerConfigs !== 'undefined')
 {
