@@ -5,17 +5,20 @@ if (typeof player_data === 'undefined' && typeof playerConfigs === 'undefined')
 
     RudiGeneratedConfig = {file: ParsedFile.substring(0,ParsedFile.search('.m3u8') + 5),
                             id: document.querySelector('div').id,
-                            autoplay: 1
+                            autoplay: 1,
+                            controls: 0
     };
 }
 else if (typeof player_data !== 'undefined')
 {
     player_data['autoplay'] = 1;
+    player_data['controls'] = 0;
     delete player_data['rek'];
 }
 else if (typeof playerConfigs !== 'undefined')
 {
     playerConfigs['autoplay'] = 1;
+    player_data['controls'] = 0;
     delete playerConfigs['rek'];
 }
 
