@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Редирект</title>
+    <title>Фоновый звук</title>
 </head>
 <body>
-    <audio autoplay loop>
-        <source src="https://zzedovec.github.io/resources/audio.mp3" type="audio/mpeg">
-        Ваш браузер не поддерживает аудио.
-    </audio>
+    <button id="playButton">Перейти</button>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const audio = new Audio("https://zzedovec.github.io/resources/audio.mp3");
+            audio.loop = true;
+            document.getElementById("playButton").addEventListener("click", function() {
+                audio.play();
+                this.style.display = "none"; // Скрываем кнопку после запуска
+            });
+        });
+    </script>
 </body>
 </html>
