@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Unbounded:wght@200..900&display=swap');
+
+body {
+    margin: 0;
+    background-image: url('https://zzedovec.github.io/resources/background-index.png');
+    background-repeat: repeat-x;
+    background-size: cover;
+    animation: moveBg 60s linear infinite;
+    overflow: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    font-family: Inter, sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55px;
+    background-color: transparent;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    transition-duration: 0.5s;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: 900;
+    font-family: 'Unbounded';
+    color: White;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-right: +40px;
+}
+
+header nav a {
+    color: rgb(207, 207, 207);
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+header nav a:hover {
+    color: sandybrown;
+}
+
+h1 {
+    font-family: Unbounded;
+    font-weight: 900;
+    position: relative;
+    color: white;
+}
+
+h3 {
+    font-family: Unbounded;
+    font-weight: 400;
+    margin-top: 5px;
+    color:rgb(182, 182, 182);
+}
+
+.header {
+    align-self: center;
+    margin-bottom: 5px;
+}
+
+.myDesc{
+    align-self: center;
+    text-align: center;
+}
+
+.boldNick{
+    font-family: Unbounded;
+    font-weight: 900;
+}
+
+.warn {
+    color: orange;
+    font-family: Unbounded;
+    margin-top: 0px;
+    left: 15%;
+    position: relative;
+}
+
+.scrollAnim{
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    bottom: 40px;
+    align-self: center;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.progName{
+    position: relative;
+    left: 15%;
+    margin-bottom: 5px;
+}
+
+.progDesc{
+    position: relative;
+    left: 15%;
+}
+
+.basement {
+    bottom: 50px;
+    display: grid;
+      place-items: center;
+    position: relative;
+    color: rgba(209, 209, 209, 0.521);
+}
+
+.progImg{
+    width: 800px;
+    height: 600px;
+    position: absolute;
+    left: 50%;
+    transition: transform 0.50s ease-out;
+    transform-style: preserve-3d;
+}
+
+button{
+    background-color: rgba(211, 211, 211, 0.5);
+    height: 40px;
+    font-family: Inter;
+    color:rgb(214, 214, 214);
+    border-color: rgba(151, 151, 151, 0.5);
+    border-style: solid;
+    border-radius: 7px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    width: 130px;
+}
+
+button:hover{
+    background-color: rgba(211, 211, 211, 0.8);
+    border: rgba(211, 211, 211, 0.8);
+    color: White;
+}
+
+.progButton {
+    position: relative;
+    left: 15%;
+    margin-right: 10px;
+}
+
+
+@keyframes moveBg {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -100vw 0; /* Сдвигаем фон влево */
+    }
+}

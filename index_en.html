@@ -13,52 +13,53 @@
         <header>
             <h1>queinu</h1>
                 <nav>
-                    <a href="https://zzedovec.github.io">Главная</a>
+                    <a href="https://zzedovec.github.io">Home</a>
                     <a href="/rudi.html">Rudi</a>
                     <a onclick="scrollToSection(2)">TruckersMP Launcher</a>
                     <a onclick="scrollToSection(3)">quInstaller</a>
-                    <a onclick="scrollToSection(4)">Связь со мной</a>
+                    <a onclick="scrollToSection(4)">Contact Me</a>
                 </nav>
         </header>
         <div class="container">
-            <h1 class="header">Привет.</h1>
-            <h3 class="myDesc">Я – <span class="boldNick">queinu</span>. Пишу приложения для вашего удобства<br>и классного времяпровождения</h3>
+            <h1 class="header">Hello.</h1>
+            <h3 class="myDesc">I am <span class="boldNick">queinu</span>. I write applications for your convenience<br>and great time</h3>
             <video src="images/scroll.webm" loop autoplay class="scrollAnim"></video>
         </div>
         <div class="container" id="rudi">
             <h1 class="progName">Rudi</h1>
-            <h3 class="progDesc">Смотрите видео, аниме и фильмы<br>вместе с коллегами, друзьями и любимыми</h3>
+            <h3 class="progDesc">Watch videos, anime, and movies<br>together with colleagues, friends, and loved ones</h3>
+            <h5 class="warn">⚠️ Does not support English language!</h5>
             <div class="buttonContainer">
-                <button class="progButton" onclick="downloadRudi()">Скачать</button>
-                <button class="progButton" onclick="window.location.href='/rudi'">Подробнее</button>
+                <button class="progButton" onclick="downloadRudi()">Download</button>
+                <button class="progButton" onclick="window.location.href='/rudi'">More Info</button>
             </div>
 
             <img src="images/rudiBanner.png" class="progImg" onmousemove="tiltImage(event)" onmouseleave="resetTilt(event)">
         </div>
         <div class="container" id="truckersmp">
             <h1 class="progName">TruckersMP Launcher<br>for Linux</h1>
-            <h3 class="progDesc">Играйте в TruckersMP на любимой системе!</h3>
+            <h3 class="progDesc">Play TruckersMP on your favorite system!</h3>
             <div class="buttonContainer">
-                <button class="progButton" onclick="window.open('https://github.com/ZzEdovec/truckersmp-linux/releases')">Скачать</button>
-                <button class="progButton" onclick="window.open('https://github.com/ZzEdovec/truckersmp-linux')">Подробнее</button>
+                <button class="progButton" onclick="window.open('https://github.com/ZzEdovec/truckersmp-linux/releases')">Download</button>
+                <button class="progButton" onclick="window.open('https://github.com/ZzEdovec/truckersmp-linux')">More Info</button>
             </div>
 
             <img src="https://github.com/ZzEdovec/truckersmp-linux/raw/main/launcher-window.png" class="progImg" onmousemove="tiltImage(event)" onmouseleave="resetTilt(event)">
         </div>
         <div class="container" id="quinstaller">
             <h1 class="progName">quInstaller</h1>
-            <h3 class="progDesc">Простой и современный установщик<br>для ваших программ</h3>
+            <h3 class="progDesc">A simple and modern installer<br>for your programs</h3>
             <div class="buttonContainer">
-                <button class="progButton" onclick="window.open('https://github.com/ZzEdovec/quInstaller/releases')">Релизы</button>
+                <button class="progButton" onclick="window.open('https://github.com/ZzEdovec/quInstaller/releases')">Releases</button>
                 <button class="progButton" onclick="window.open('https://github.com/ZzEdovec/quInstaller')">GitHub</button>
             </div>
 
             <img src="https://github.com/ZzEdovec/quInstaller/raw/main/readme-banner.png" class="progImg" onmousemove="tiltImage(event)" onmouseleave="resetTilt(event)">
         </div>
         <div class="container">
-            <h1 class="header" style="margin-bottom: 20px;">Связь со мной</h1>
+            <h1 class="header" style="margin-bottom: 20px;">Contact Me</h1>
             <div class="buttonContainer" style="left: 0;align-self: center;">
-                <button class="socialButton" onclick="window.open('https://www.donationalerts.com/r/queinu')">Поддержать</button>
+                <button class="socialButton" onclick="window.open('mailto://zzedovec@yahoo.com')">Email</button>
                 <button class="socialButton" onclick="window.open('https://t.me/queinu')">Telegram</button>
             </div>
         </div>

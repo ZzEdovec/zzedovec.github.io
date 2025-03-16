@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="robots" content="index, follow">
+        <meta name="description" content="Rudi - смотрите видео вместе">
+        <meta name="keywords" content="rudi,руди,видео,вместе,аниме,фильмы">
+        <title>Rudi</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="icon" type="image/x-icon" href="https://zzedovec.github.io/icons/queinuappsportalicon.ico">
+    </head>
+    <body>
+        <header>
+            <h1>queinu</h1>
+                <nav>
+                    <a href="https://zzedovec.github.io">Вернуться на главную</a>
+                </nav>
+        </header>
+        <div class="container" id="rudi">
+            <h1 class="progName">Rudi</h1>
+            <h3 class="progDesc">Смотрите видео, аниме и фильмы<br>вместе с коллегами, друзьями и любимыми</h3>
+            <div class="buttonContainer">
+                <button class="progButton" onclick="downloadRudi()">Скачать</button>
+            </div>
+            <video src="scroll.webm" loop autoplay class="scrollAnim"></video>
+
+            <img src="images/rudiBanner.png" class="progImg" onmousemove="tiltImage(event)" onmouseleave="resetTilt(event)">
+        </div>
+        <div class="container" id="truckersmp">
+            <h1 class="progName">Безопасность</h1>
+            <h3 class="progDesc">Полный контроль подключаемых пользователей,<br>
+                                 отстутствие централизации и сбора данных</h3>
+
+            <img src="images/rudiSafe.png" class="progImg" style="width: 600px;height: 400px;" onmousemove="tiltImage(event)" onmouseleave="resetTilt(event)">
+        </div>
+        <div class="container" id="truckersmp">
+            <h1 class="progName">Поддерживайте связь</h1>
+            <h3 class="progDesc">Общайтесь даже во время просмотра видео!<br>
+                                 В Rudi чат поддерживает всевозможные<br> функции и мультимедиа</h3>
+
+            <img src="images/chatBanner.png" class="progImg" style="width: 240px;height: 470px;left: 60%;" onmousemove="tiltImage(event)" onmouseleave="resetTilt(event)">
+        </div>
+        <div class="container" id="truckersmp">
+            <h1 class="progName">Смотрите без ограничений</h1>
+            <h3 class="progDesc">В Rudi поддерживается VK Video, YouTube и<br>
+                                 JutSu! Это первая программа в своём роде,<br>
+                                имеющая интеграцию с аниме-сайтами</h3>
+
+            <img src="images/rudiIntegrationBanner.png" class="progImg" onmousemove="tiltImage(event)" onmouseleave="resetTilt(event)">
+        </div>
+        <div class="container">
+            <h1 class="header">Мы всегда поддержим</h1>
+            <h3 class="myDesc">В случае сложностей в работе с Rudi,<br>просто обратитесь за помощью к разработчику</h3>
+
+            <div class="buttonContainer" style="left: 0;align-self: center;">
+                <button class="socialButton" onclick="window.open('https://t.me/queinu')">Связь в Telegram</button>
+            </div>
+        </div>
+        <p class="basement">с любовью создана queinu, права защищены</p>
+    <script src="script.js"></script>
+    </body>
+</html>
+</html>
