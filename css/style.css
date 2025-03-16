@@ -7,7 +7,6 @@ body {
     background-repeat: repeat-x;
     background-size: cover;
     animation: moveBg 60s linear infinite;
-    overflow: hidden;
 }
 
 html {
