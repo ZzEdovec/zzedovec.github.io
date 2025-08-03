@@ -17,7 +17,7 @@
     </style>
 </head>
 <body>
-    <iframe id="player" allow="autoplay; encrypted-media;" frameborder="0" sandbox="allow-same-origin allow-scripts" onload="iframeFocus()"></iframe>
+    <iframe id="player" allow="autoplay; encrypted-media;" frameborder="0" sandbox="allow-same-origin allow-scripts"></iframe>
     
     <script src="https://vk.com/js/api/videoplayer.js"></script>
     <script>
@@ -46,6 +46,8 @@
 
         function load(id)
         {
+            player.seek(0);
+
             ids = id.split('_');
             playerElement.setAttribute('src','https://vk.com/video_ext.php?oid='+ids[0]+'&id='+ids[1]+'&hd=1&autoplay=1&js_api=1');
         }
